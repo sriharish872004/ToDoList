@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TODO List</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    #result:empty {
+      height: auto;
+    }
+  </style>
+</head>
+<body class="bg-cover bg-center h-screen flex items-center justify-center" style="background-image: url('../images/bgNature');">
+  <div class="w-full max-w-lg bg-white/20 backdrop-blur-md shadow-xl rounded-xl p-6 border border-white/30 flex flex-col">
+    <h1 class="text-3xl font-bold text-center ">TODO List</h1>
+    
+    <div class="mt-4 flex items-center gap-2">
+      <input type="text" id="taskInput" placeholder="Add a new task" 
+        class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 bg-white/50 placeholder-gray-700" />
+      <button id="submitBtn" 
+        class="bg-green-600 text-white px-4 py-2 rounded-lg text-lg font-semibold hover:bg-green-700 transition-all">
+        Add Tasks
+      </button>
+    </div>
+
+    <input type="text" id="searchInput" placeholder="Search tasks" 
+      class="w-full mt-4 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 bg-white/50 placeholder-gray-700" />
+
+    <!-- Auto-growing Task List -->
+    <div id="result" class="mt-4 space-y-2 min-h-[50px] max-h-[400px] overflow-y-auto px-2 transition-all ease-in-out duration-300">
+    </div>
+  </div>
+  
+  <script>
+    function adjustTaskListHeight() {
+      const resultElement = document.getElementById("result");
+      if (resultElement.children.length === 0) {
+        resultElement.style.height = "auto";
+      } else {
+        resultElement.style.height = "max-content";
+      }
+    }
+  </script>
+  <script src="./script.js"></script>
+</body>
+</html>
